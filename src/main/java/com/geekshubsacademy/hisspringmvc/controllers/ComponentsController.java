@@ -12,14 +12,6 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequestMapping("/")
 public class ComponentsController {
 
-//    @GetMapping("/")
-//    public ModelAndView login()
-//    {
-//        ModelAndView mav = new ModelAndView("login");
-//        mav.addObject("user", new UserLogin("user", "pass"));
-//        return new ModelAndView("login");
-//    }
-
     @GetMapping("/")
     public ModelAndView login()
     {

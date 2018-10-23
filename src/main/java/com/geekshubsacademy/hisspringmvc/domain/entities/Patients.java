@@ -10,8 +10,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name="pacientes")
-public class Pacientes implements Serializable {
+@Table(name="patients")
+public class Patients implements Serializable {
 
     private static final long serialVersionUID=1L;
 
@@ -40,10 +40,10 @@ public class Pacientes implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdAt;
 
-    public Pacientes() {
+    public Patients() {
     }
 
-    public Pacientes(@NotEmpty String name, @NotEmpty String surname, @NotEmpty String username, @NotEmpty String password, @NotEmpty String history, @NotNull Date createdAt) {
+    public Patients(@NotEmpty String name, @NotEmpty String surname, @NotEmpty String username, @NotEmpty String password, @NotEmpty String history, @NotNull Date createdAt) {
         this.name = name;
         this.surname = surname;
         this.username = username;
@@ -115,7 +115,7 @@ public class Pacientes implements Serializable {
     @Override
     public String
     toString() {
-        return "Pacientes{" +
+        return "Patients{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +

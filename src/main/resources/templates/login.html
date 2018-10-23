@@ -1,0 +1,59 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="loginContainer">-->
+    <!--<h1>INICIO DE SESIÓN</h1>-->
+
+    <!--<div class="loginForm">-->
+        <!--<form action="#" th:action="@{/dashboard}" method="post">-->
+            <!--<span>Usuario:</span> <input type="text" th:field="*{user}" class="form-control"-->
+                                  <!--id="exampleUser" aria-describedby="userHelp" placeholder="usuario"><br /><br/>-->
+            <!--<span>Contraseña:</span> <input type="password" th:field="*{pass}" class="form-control"-->
+                                     <!--id="exampleInputPassword1" placeholder="contraseña"><br/>-->
+            <!--<div class="button" type="submit">Entrar </div>-->
+        <!--</form>-->
+        <!--<div *ngIf="error"><br/>{{error}}</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<head th:replace = "layout/layout :: head"></head>-->
+</head>
+<body>
+<header></header>
+<!--<header th:replace = "layout/layout :: header"></header>-->
+<div>
+    <form action="#" th:action="@{/dashboard}" th:object="${user}" method="get">
+        <div class="form-group">
+            <label for="exampleUser">User</label>
+            <input type="text" th:field="*{user}"
+                   class="form-control"
+                   id="exampleUser"
+                   aria-describedby="userHelp"
+                   placeholder="usuario">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword">Password</label>
+            <input type="password" th:field="*{pass}"
+                   class="form-control"
+                   id="exampleInputPassword"
+                   placeholder="contraseña">
+            <button type="submit" ckass="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+<footer></footer>
+<!--<footer th:replace = "layout/layout :: footer"></footer>-->
+</body>
+</html>

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
 public interface IPatientService {
     public List<Patients> listPatients();
     public void addPatient(Patients patient);

@@ -18,7 +18,8 @@ public class IPatientServiceImpl implements IPatientService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Patients> listPatients() {
+    public List<Patients> listPatients()
+    {
         return (List<Patients>) patientDao.findAll();
     }
 
@@ -29,6 +30,7 @@ public class IPatientServiceImpl implements IPatientService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<Patients> showPatient(Long id) {
         return patientDao.findById(id);
     }

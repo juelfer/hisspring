@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir paciente</title>
+</head>
+<body>
+    <header>Añadir paciente</header>
+    <div>
+        <form action="#" th:action="@{/newpatient}" th:object="${patient}" method="get">
+            <div class="form-group">
+                <label for="patientName">Nombre</label>
+                <input type="text" th:field="*{name}"
+                       class="form-control"
+                       id="patientName"
+                       aria-describedby="userHelp"
+                       placeholder="nombre">
+            </div>
+            <div class="form-group">
+                <label for="patientSurname">Apellidos</label>
+                <input type="text" th:field="*{surname}"
+                       class="form-control"
+                       id="patientSurname"
+                       placeholder="apellidos">
+            </div>
+            <div class="form-group">
+                <label for="patientUsername">Nombre de usuario</label>
+                <input type="text" th:field="*{username}"
+                       class="form-control"
+                       id="patientUsername"
+                       placeholder="nombre de usuario">
+            </div>
+            <div class="form-group">
+                <label for="patientPassword">Contraseña</label>
+                <input type="text" th:field="*{password}"
+                       class="form-control"
+                       id="patientPassword"
+                       placeholder="password">
+            </div>
+            <div class="form-group">
+                <label for="patientHistory">Historial clínico</label>
+                <input type="text" th:field="*{history}"
+                       class="form-control"
+                       id="patientHistory"
+                       placeholder="código de historial">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Crear</button>
+            </div>
+        </form>
+    </div>
+    <footer></footer>
+</body>
+</html>

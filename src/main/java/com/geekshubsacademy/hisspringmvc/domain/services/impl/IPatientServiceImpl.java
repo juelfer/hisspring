@@ -25,15 +25,21 @@ public class IPatientServiceImpl implements IPatientService {
 
     @Override
     @Transactional
-    public void addPatient(Patients patient) {
+    public void addPatient(Patients patient)
+    {
         patientDao.save(patient);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Patients> showPatient(Long id) {
+    public Optional<Patients> showPatient(Long id)
+    {
         return patientDao.findById(id);
     }
 
-
+    @Transactional
+    public void deletePatient(Patients patient)
+    {
+        patientDao.delete(patient);
+    }
 }

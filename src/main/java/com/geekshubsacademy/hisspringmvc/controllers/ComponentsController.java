@@ -29,11 +29,11 @@ public class ComponentsController {
     {
         ModelAndView mav = new ModelAndView("login");
         mav.addObject("user", new UserLogin());
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-DD");
-        Date date = new Date();
-        dateFormat.format(date);
-        Patients patient = new Patients("Juan", "Fernández", "juelfer", "1234", "HC0001", date);
-        patientService.addPatient(patient);
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-DD");
+//        Date date = new Date();
+//        dateFormat.format(date);
+//        Patients patient = new Patients("Juan", "Fernández", "juelfer", "1234", "HC0001", date);
+//        patientService.addPatient(patient);
         return mav;
     }
 
@@ -42,5 +42,27 @@ public class ComponentsController {
     {
         ModelAndView mav = new ModelAndView("dashboard");
         return mav;
+    }
+
+
+    @GetMapping("/addpatient")
+    public ModelAndView addUser()
+    {
+        ModelAndView addmav = new ModelAndView("addPatient");
+        addmav.addObject("patient", new Patients());
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-DD");
+//        Date date = new Date();
+//        dateFormat.format(date);
+//        Patients patient = new Patients("Juan", "Fernández", "juelfer", "1234", "HC0001", date);
+//        patientService.addPatient(patient);
+        return addmav;
+    }
+
+
+    @GetMapping("/newpatient")
+    public ModelAndView deleteUser()
+    {
+        ModelAndView newpatmav = new ModelAndView("newPatient");
+        return newpatmav;
     }
 }

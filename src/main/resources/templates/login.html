@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
 <body>
     <header>Iniciar sesión</header>
-    <div>
+    <div class="mainContainer">
         <form action="#" th:action="@{/dashboard}" th:object="${user}" method="get">
             <div class="form-group">
                 <label for="exampleUser">User</label>
@@ -22,6 +23,7 @@
                        class="form-control"
                        id="exampleInputPassword"
                        placeholder="contraseña">
+                <br />
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>

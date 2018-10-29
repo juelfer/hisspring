@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -46,7 +48,7 @@ public class ComponentsController {
 
 
     @GetMapping("/addpatient")
-    public ModelAndView addUser()
+    public ModelAndView addPatient()
     {
         ModelAndView addmav = new ModelAndView("addPatient");
         addmav.addObject("patient", new Patients());
@@ -59,10 +61,16 @@ public class ComponentsController {
     }
 
 
-    @GetMapping("/newpatient")
-    public ModelAndView deleteUser()
+    @PostMapping("/newpatient")
+    public ModelAndView newPatient(@ModelAttribute("patient") Patients patient)
     {
-        ModelAndView newpatmav = new ModelAndView("newPatient");
+        ModelAndView newpatmav = new ModelAndView("newpatient");
+        newpatmav.addObject("patient", patient);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-DD");
+        Date date = new Date();
+        dateFormat.format(date);
+        patient.setCreatedAt(date);
+        patientService.addPatient(patient);
         return newpatmav;
     }
 }

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="UTF-8">
-    <title>Nuevo paciente</title>
+    <title>Paciente añadido</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-    <header>Paciente creado</header>
+<h1>Paciente añadido</h1></br>
+<h2>Nombre: </h2><span th:text="${patient.name}"></span>
+<h2>Apellidos: </h2><span th:text="${patient.surname}"></span>
+<h2>Nombre de usuario: </h2><span th:text="${patient.username}"></span>
+<h2>Código de historial: </h2><span th:text="${patient.history}"></span>
 </body>
 </html>

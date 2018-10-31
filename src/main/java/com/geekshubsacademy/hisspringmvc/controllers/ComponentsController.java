@@ -60,17 +60,36 @@ public class ComponentsController {
         return addmav;
     }
 
-
-    @PostMapping("/newpatient")
-    public ModelAndView newPatient(@ModelAttribute("patient") Patients patient)
-    {
-        ModelAndView newpatmav = new ModelAndView("newpatient");
-        newpatmav.addObject("patient", patient);
+    @PostMapping("/addpatient")
+    public ModelAndView savePatient(Patients patient){
+        ModelAndView mv = new ModelAndView("patientslist");
+        mv.addObject("patient",patient);
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-DD");
         Date date = new Date();
         dateFormat.format(date);
         patient.setCreatedAt(date);
         patientService.addPatient(patient);
-        return newpatmav;
+        return mv;
+    }
+
+
+//    @PostMapping("/newpatient")
+//    public ModelAndView newPatient(@ModelAttribute("patient") Patients patient)
+//    {
+//        ModelAndView newpatmav = new ModelAndView("newpatient");
+//        newpatmav.addObject("patient", patient);
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-DD");
+//        Date date = new Date();
+//        dateFormat.format(date);
+//        patient.setCreatedAt(date);
+//        patientService.addPatient(patient);
+//        return newpatmav;
+//    }
+
+    @GetMapping("/patientslist")
+    public ModelAndView patientList(){
+        ModelAndView mv = new ModelAndView("patientslist");
+        mv.addObject("patients", patientService.listPatients());
+        return mv;
     }
 }

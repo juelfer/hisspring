@@ -11,7 +11,7 @@
 
     <!--<header>Añadir paciente</header>-->
     <div class="mainContainer">
-        <form action="#" th:action="@{/newpatient}" th:object="${patient}" method="post">
+        <form action="#" th:action="@{/addpatient}" th:object="${patient}" method="post">
             <div class="form-group">
                 <label for="patientName" class="col col-2 bg-primary text-white">Nombre</label>
                 <input type="text" th:field="*{name}"

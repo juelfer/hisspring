@@ -2,19 +2,21 @@
 
 header {
     font-family: "Arial Black";
-    size: 4em;
+    height: 2vh;
     text-align: center;
-    width: 100vw;
+    width: 50vw;
+    border:0;
+    margin:0;
 }
 
 .mainContainer {
     padding: 5vh 5vw;
-    height: 90vh;
+    height: 88vh;
     width: 90vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: mediumblue;
-    color: bisque;
+    color: blue;
     font-family: 'Roboto', sans-serif;
+    border:0;
 }

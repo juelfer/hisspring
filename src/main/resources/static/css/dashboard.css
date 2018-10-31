@@ -1,0 +1,10 @@
+.mainContainer{
+    flex-direction: column;
+    background-color: white;
+    color: blue;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}

@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
 </head>
 <body>
     <div class="mainContainer">
         <h1>Bienvenido al dashboard</h1><br />
-        <div>
-        <p>Nuevo paciente</p>
+        <p><a th:href="@{/addpatient}">Nuevo paciente</a></p>
         <p>Datos de paciente</p>
         <p>Historiales médicos</p>
         <p>Lista de pacientes</p>
-        </div>
     </div>
 </body>
 </html>

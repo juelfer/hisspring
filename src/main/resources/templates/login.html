@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--<link rel="stylesheet" th:href="@{/css/main.css}">-->
 </head>
 <body>
     <!--<header>Iniciar sesión</header>-->
     <div class="mainContainer">
         <form action="#" th:action="@{/dashboard}" th:object="${user}" method="get">
             <div class="form-group">
-                <label for="exampleUser">User</label>
+                <label for="exampleUser" class="p-3 mb-2 col col-2 bg-primary text-white">Usuario</label>
                 <input type="text" th:field="*{user}"
-                       class="form-control"
+                       class="form-control p-3 mb-2 col col-6 bg-white text-primary"
                        id="exampleUser"
                        aria-describedby="userHelp"
-                       placeholder="usuario">
+                       placeholder="introduzca usuario">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword">Password</label>
+                <label for="exampleInputPassword" class="p-3 mb-2 col col-2 align-self-center align-items-center bg-primary text-white">Contraseña</label>
                 <input type="password" th:field="*{pass}"
-                       class="form-control"
+                       class="form-control p-3 mb-2 col col-6 bg-white text-primary"
                        id="exampleInputPassword"
-                       placeholder="contraseña">
+                       placeholder="introduzca contraseña">
                 <br />
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Entrar</button>
             </div>
         </form>
     </div>

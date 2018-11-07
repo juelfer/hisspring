@@ -25,7 +25,7 @@ public class IPatientServiceImpl implements IPatientService {
 
     @Override
     @Transactional
-    public void addPatient(Patients patient)
+    public void savePatient(Patients patient)
     {
         patientDao.save(patient);
     }

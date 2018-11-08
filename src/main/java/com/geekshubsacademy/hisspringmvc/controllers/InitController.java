@@ -85,6 +85,7 @@ public class InitController {
     @GetMapping("/patientslist")
     public ModelAndView patientList(){
         ModelAndView mv = new ModelAndView("patientslist");
+        mv.addObject("titulo", "Listado de pacientes");
         mv.addObject("patients", patientsComponent.showPatients());
         return mv;
     }

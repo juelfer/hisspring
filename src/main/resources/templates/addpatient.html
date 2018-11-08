@@ -1,58 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Añadir paciente</title>
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!--<link rel="stylesheet" th:href="@{/css/main.css}">-->
-</head>
+<head th:replace="layout/layout :: head"></head>
 <body>
-    <header th:replace="dashboard :: header"></header>
+    <header th:replace="layout/layout :: header"></header>
 
-    <!--<header>Añadir paciente</header>-->
-    <div class="mainContainer">
-        <form action="#" th:action="@{/addpatient}" th:object="${patient}" method="post">
-            <div class="form-group">
-                <label for="patientName" class="col col-2 bg-primary text-white">Nombre</label>
-                <input type="text" th:field="*{name}"
-                       class="form-control text-primary"
-                       id="patientName"
-                       aria-describedby="userHelp"
-                       placeholder="nombre">
-            </div>
-            <div class="form-group">
-                <label for="patientSurname" class="col col-2 bg-primary text-white">Apellidos</label>
-                <input type="text" th:field="*{surname}"
-                       class="form-control text-primary"
-                       id="patientSurname"
-                       placeholder="apellidos">
-            </div>
-            <div class="form-group">
-                <label for="patientUsername" class="col col-2 bg-primary text-white">Nombre de usuario</label>
-                <input type="text" th:field="*{username}"
-                       class="form-control text-primary"
-                       id="patientUsername"
-                       placeholder="nombre de usuario">
-            </div>
-            <div class="form-group">
-                <label for="patientPassword" class="col col-2 bg-primary text-white">Contraseña</label>
-                <input type="text" th:field="*{password}"
-                       class="form-control text-primary"
-                       id="patientPassword"
-                       placeholder="password">
-            </div>
-            <div class="form-group">
-                <label for="patientHistory" class="col col-2 bg-primary text-white">Historial clínico</label>
-                <input type="text" th:field="*{history}"
-                       class="form-control text-primary"
-                       id="patientHistory"
-                       placeholder="código de historial">
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary">Crear</button>
-            </div>
-        </form>
+    <div class="mainContainer py-4">
+        <div class="card-header text-primary text-center font-weight-bold" th:text="${titulo}"></div>
+        <div class="card-body">
+            <form action="#" th:action="@{/addpatient}" th:object="${patient}" method="post">
+                <div class="form-group">
+                    <label for="patientName" class="col col-2 bg-primary text-white">Nombre</label>
+                    <input type="text" th:field="*{name}"
+                           class="form-control text-primary"
+                           id="patientName"
+                           aria-describedby="userHelp"
+                           placeholder="nombre">
+                </div>
+                <div class="form-group">
+                    <label for="patientSurname" class="col col-2 bg-primary text-white">Apellidos</label>
+                    <input type="text" th:field="*{surname}"
+                           class="form-control text-primary"
+                           id="patientSurname"
+                           placeholder="apellidos">
+                </div>
+                <div class="form-group">
+                    <label for="patientUsername" class="col col-2 bg-primary text-white">Nombre de usuario</label>
+                    <input type="text" th:field="*{username}"
+                           class="form-control text-primary"
+                           id="patientUsername"
+                           placeholder="nombre de usuario">
+                </div>
+                <div class="form-group">
+                    <label for="patientPassword" class="col col-2 bg-primary text-white">Contraseña</label>
+                    <input type="text" th:field="*{password}"
+                           class="form-control text-primary"
+                           id="patientPassword"
+                           placeholder="password">
+                </div>
+                <div class="form-group">
+                    <label for="patientHistory" class="col col-2 bg-primary text-white">Historial clínico</label>
+                    <input type="text" th:field="*{history}"
+                           class="form-control text-primary"
+                           id="patientHistory"
+                           placeholder="código de historial">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <footer></footer>
+    <footer th:replace="layout/layout :: footer"></footer>
 </body>
 </html>

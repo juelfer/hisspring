@@ -3,10 +3,12 @@
 <head th:replace="layout/layout :: head"></head>
 <body>
     <header th:replace="layout/layout :: header"></header>
-
     <div class="mainContainer py-4">
-        <div class="card-header text-primary text-center font-weight-bold" th:text="${titulo}"></div>
+        <div class="card-header text-primary text-center font-weight-bold" th:text="${title}"></div>
         <div class="card-body">
+            <div th:object="${patient}" th:remove="tag">
+
+            </div>
             <form action="#" th:action="@{/addpatient}" th:object="${patient}" method="post">
                 <div class="form-group">
                     <label for="patientName" class="col col-2 bg-primary text-white">Nombre</label>

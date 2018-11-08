@@ -22,16 +22,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
-//@RequestMapping("/")
 @SessionAttributes("patient")
 public class InitController {
-
     private static final Log logger = LogFactory.getLog("InitController.class");
-
     @Autowired
-//    private IPatientService patientService;
     private PatientsComponent patientsComponent;
 
     @GetMapping("/")
@@ -49,43 +46,50 @@ public class InitController {
         return mav;
     }
 
-
     @GetMapping("/addpatient")
-//    public ModelAndView addPatient()
     public String addPatient (Map<String, Object> model)
     {
-//        ModelAndView addmav = new ModelAndView("addPatient");
-//        addmav.addObject("patient", new Patients());
-//        return addmav;
         model.put("patient", patientsComponent.createPatient());
-        model.put("titulo", "Añadir paciente");
+        model.put("title", "Añadir paciente");
         return "addpatient";
     }
 
     @PostMapping("/addpatient")
-//    public ModelAndView savePatient(Patients patient){
-//        ModelAndView mv = new ModelAndView("patientslist");
-//        mv.addObject("patient",patient);
-//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-DD");
-//        Date date = new Date();
-//        dateFormat.format(date);
-//        patient.setCreatedAt(date);
-//        patientService.addPatient(patient);
-//        return mv;
     public String savePatient(@Valid @ModelAttribute ("patient") Patients patient, BindingResult result, Model model, RedirectAttributes flash, SessionStatus status){
         if(result.hasErrors()){
             logger.info("Errores en datos introducidos");
-            model.addAttribute("titulo", "Añadir paciente");
+            model.addAttribute("title", "Añadir paciente");
             return "addpatient";
         }
         patientsComponent.addPatient(patient);
         return "redirect:/patientslist";
     }
 
+    @GetMapping(value="/addpatient/{id}")
+    public String edit(@PathVariable Long id, Map <String, Object> model, RedirectAttributes flash){
+        logger.info(patientsComponent.getPatientById(id));
+        Optional<Patients> patient = null;
+        if (id>0) {
+            patient = patientsComponent.getPatientById(id);
+            if (patient.equals(Optional.empty())) {
+                flash.addFlashAttribute("error", "El ID del paciente no existe en la base de datos");
+                return "redirect:/patientslist";
+            }
+        } else {
+            flash.addFlashAttribute("error", "El ID del paciente no puede ser menor o igual a cero");
+            return "redirect:/patientslist";
+        }
+
+        model.put("patient", patient);
+        model.put("title", "Editar paciente");
+
+        return "addpatient";
+    }
+
     @GetMapping("/patientslist")
     public ModelAndView patientList(){
         ModelAndView mv = new ModelAndView("patientslist");
-        mv.addObject("titulo", "Listado de pacientes");
+        mv.addObject("title", "Listado de pacientes");
         mv.addObject("patients", patientsComponent.showPatients());
         return mv;
     }

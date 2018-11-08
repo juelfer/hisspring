@@ -1,15 +1,38 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Paciente añadido</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
 <body>
-<h1>Paciente añadido</h1></br>
-<h2>Nombre: </h2><span th:text="${patient.name}"></span>
-<h2>Apellidos: </h2><span th:text="${patient.surname}"></span>
-<h2>Nombre de usuario: </h2><span th:text="${patient.username}"></span>
-<h2>Código de historial: </h2><span th:text="${patient.history}"></span>
+<header th:replace="layout/layout :: header"></header>
+<div class="container py-4">
+    <div class="card bg-light">
+        <div class="card-header" th:text="${title}"></div>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead class="thead-inverse">
+        <tr>
+            <th>Historia Clinica</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:object="${patient}">
+            <td th:text="${patient.history}"></td>
+            <td th:text="${patient.name}"></td>
+            <td th:text="${patient.surname}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<footer th:replace="layout/layout :: footer"></footer>
 </body>
 </html>
+
+
+<!--<h1>Paciente añadido</h1></br>-->
+<!--<h2>Nombre: </h2><span th:text="${patient.name}"></span>-->
+<!--<h2>Apellidos: </h2><span th:text="${patient.surname}"></span>-->
+<!--<h2>Nombre de usuario: </h2><span th:text="${patient.username}"></span>-->
+<!--<h2>Código de historial: </h2><span th:text="${patient.history}"></span>-->
